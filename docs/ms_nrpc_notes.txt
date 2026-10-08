@@ -1,0 +1,82 @@
+Microsoft Netlogon Remote Protocol (MS-NRPC) Notes
+==================================================
+
+Purpose
+-------
+MS-NRPC is a Microsoft RPC protocol used by Windows domain members
+and domain controllers for authentication-related operations.
+
+Zerologon
+---------
+CVE-2020-1472, also known as Zerologon, is a vulnerability in the
+Netlogon Remote Protocol.
+
+The vulnerability is related to the cryptographic design used during
+the Netlogon authentication process.
+
+The issue involved the use of AES-CFB8 with a zero initialization
+vector and specially crafted values that could cause authentication
+to succeed with a small probability.
+
+Repeated attempts could therefore eventually result in a successful
+authentication attempt.
+
+Important Concepts
+------------------
+
+1. Netlogon
+   Netlogon provides secure communication between Windows domain
+   members and domain controllers.
+
+2. Secure Channel
+   A secure channel is normally established between a machine account
+   and the domain controller.
+
+3. Challenge-Response
+   The client and server exchange challenge values during
+   authentication.
+
+4. Credential
+   Authentication credentials are computed based on shared secrets
+   and cryptographic operations.
+
+5. AES-CFB8
+   Zerologon is associated with the use of AES in CFB8 mode.
+
+6. Initialization Vector
+   The protocol historically used a fixed zero IV in this operation.
+
+7. Probability
+   A crafted authentication value had approximately a 1/256 chance
+   of producing a valid authentication result.
+
+8. Repeated Attempts
+   Because each attempt had a small probability of success, repeated
+   authentication attempts could increase the chance of observing
+   the vulnerable behavior.
+
+Research Safety
+---------------
+For this project, MS-NRPC information is used only for:
+
+- understanding protocol structure
+- identifying relevant API names
+- studying vulnerability mechanics
+- static analysis
+- retrieval experiments
+- LLM context construction
+
+The project does not require connecting to a real domain controller.
+
+The project does not automatically execute authentication requests,
+modify machine accounts, change passwords, dump credentials, or run
+remote commands.
+
+Project Goal
+------------
+The goal is to evaluate whether an LLM can correctly understand
+security-related API documentation and vulnerability descriptions
+when relevant technical context is provided.
+
+The current workflow focuses on retrieval quality and generated
+explanations rather than performing exploitation.

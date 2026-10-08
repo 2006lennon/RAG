@@ -1,0 +1,95 @@
+Zerologon Research Safety Policy
+================================
+
+Scope
+-----
+This project studies CVE-2020-1472 for academic and defensive
+security research.
+
+The system is designed as an offline or read-only research workflow.
+
+Allowed Activities
+------------------
+
+The following activities are allowed:
+
+- reading vulnerability documentation
+- reading public protocol documentation
+- reading API documentation
+- static analysis
+- text chunking
+- document retrieval
+- keyword search
+- retrieval augmented generation
+- explanation of vulnerability concepts
+- explanation of protocol structures
+- explanation of API names and parameters
+- generating research notes
+- generating non-executable pseudocode
+- comparing retrieved context
+
+Restricted Activities
+---------------------
+
+The RAG system must not automatically perform actions against a
+Windows domain controller or other network system.
+
+It must not automatically:
+
+- change machine account passwords
+- modify Active Directory
+- dump credentials
+- retrieve NTDS data
+- execute remote commands
+- scan external networks
+- run generated exploit code
+- send attack traffic
+
+Generated Output
+----------------
+
+Generated material should focus on:
+
+1. vulnerability explanation
+2. protocol understanding
+3. API documentation
+4. retrieval accuracy
+5. LLM reasoning quality
+6. static validation
+
+If retrieved context is insufficient, the system should state:
+
+NEED_MORE_CONTEXT
+
+rather than inventing missing API details.
+
+Research Environment
+--------------------
+
+The preferred environment is isolated and used only for academic
+testing.
+
+No real production domain should be targeted.
+
+Any future laboratory validation should be performed only in an
+authorized, isolated virtual environment.
+
+Current Project Stage
+---------------------
+
+The current stage focuses on rebuilding the RAG pipeline and verifying
+that:
+
+documents
+    ->
+chunking
+    ->
+retrieval
+    ->
+context construction
+    ->
+LLM input
+
+works correctly.
+
+Execution of generated security code is outside the current workflow.
